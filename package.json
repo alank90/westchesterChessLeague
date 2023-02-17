@@ -1,0 +1,19 @@
+{
+  "name": "westchesterchessleague",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "eslint": "^8.34.0",
+    "prettier": "2.8.4",
+    "vite": "^4.1.2"
+  },
+  "dependencies": {
+    "eslint-config-prettier": "^8.6.0"
+  }
+}
