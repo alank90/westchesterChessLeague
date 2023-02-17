@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+
+  <title>Westchester Chess League</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link href="https://cdn.jsdelivr.net/npm/modern-normalize@v1.1.0
+/modern-normalize.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./css/style.css" />
+  <link rel="icon" href="favicon.jpg">
+</head>
+
+<body>
+  <nav>
+    <ul class="nav-container">
+      <li id="logout">logout</li>
+      <li id="signup">Signup</li>
+      <li class="attendees" id="login" title="Requires login">Attendees
+        <div id="profile"></div>
+      </li>
+      <li><a href="/pages/about.html">Contest Info
+        </a></li>
+    </ul>
+  </nav>
+
+  <h1>Westchester Chess League</h1>
+  <h2>Chess Contest - 2023</h2>
+
+
+  <!-- ===== Target element for Handlebars template ====== -->
+  <div id="target"></div>
+
+  <!-- ========================================================= -->
+  <!-- ============ Javascript Files Below ===================== -->
+  <!-- ========================================================= -->
+  <script type="module" src="/main.js"></script>
+</body>
+
 </html>

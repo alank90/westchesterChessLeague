@@ -1,0 +1,95 @@
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 500;
+
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #f5f0f0;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+.nav-container {
+    display: flex;
+    flex-wrap: no-wrap;
+    background-color: #00070afc;
+    justify-content: end;
+    margin: 5px 5px;
+    padding: 8px;
+}
+
+.nav-container > li {
+    font-family: Monospace;
+    font-size: 1.6rem;
+    list-style-type: none;
+    color: #f3f0f0;
+    font-weight: 600;
+    margin-left: 15px;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    transition: font-size, color 0.3s ease-out;
+}
+
+a {
+    color: #f3f0f0;
+    text-decoration: none;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.nav-container > li > a:hover,
+.nav-container > li:hover {
+    color: rgb(255, 255, 255);
+}
+
+h1 {
+    font-size: 3.2em;
+    color: #020d17;
+    line-height: 1.1;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 550;
+    transition: all 0.2s ease-in;
+}
+
+h2 {
+    font-size: 2.2em;
+    color:#020d17;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 20px 10px;
+    transition: all 0.2s ease-in;
+}
+
+h3 {
+    font-size: 1.2em;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 10px 0;
+    transition: all 0.2s ease-in;
+}
+
+#logout {
+    flex-grow: 3;
+    display: none;
+}
