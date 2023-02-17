@@ -12,6 +12,33 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
+
+    --text-color: #fafafa;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    background: url('/uploads/media/default/0001/01/b5edc1bad4dc8c20291c8394527cb2c5b43ee13c.jpeg')
+        no-repeat center;
+    background-size: cover;
+}
+
+body,
+div,
+form,
+input,
+select,
+p {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
 }
 
 .nav-container {
@@ -27,7 +54,7 @@
     font-family: Monospace;
     font-size: 1.6rem;
     list-style-type: none;
-    color: #f3f0f0;
+    color: var(--text-color);
     font-weight: 600;
     margin-left: 15px;
     border-radius: 5px;
@@ -39,6 +66,7 @@
 a {
     color: #f3f0f0;
     text-decoration: none;
+    transition: font-size, color 0.3s ease-out;
 }
 
 a:link {
@@ -74,7 +102,7 @@ h1 {
 
 h2 {
     font-size: 2.2em;
-    color:#020d17;
+    color: #020d17;
     text-align: center;
     text-transform: uppercase;
     margin: 20px 10px;
@@ -83,6 +111,7 @@ h2 {
 
 h3 {
     font-size: 1.2em;
+    color: #020d17;
     text-align: center;
     text-transform: uppercase;
     margin: 10px 0;
@@ -92,4 +121,148 @@ h3 {
 #logout {
     flex-grow: 3;
     display: none;
+}
+
+/* ============= Form stylings ======================= */
+.main-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.left-part h1 {
+    font-size: 2rem;
+}
+
+form h2 {
+    color: var(--text-color);
+    font-size: 2rem;
+}
+.left-part,
+form {
+    padding: 25px;
+}
+.left-part {
+    text-align: center;
+}
+.fa-graduation-cap {
+    font-size: 72px;
+}
+form {
+    background: rgba(0, 0, 0, 0.7);
+}
+.title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+}
+input,
+select {
+    padding: 5px;
+    margin-bottom: 30px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #eee;
+}
+input::placeholder {
+    color: #eee;
+}
+option:focus {
+    border: none;
+}
+option {
+    background: black;
+    border: none;
+}
+.checkbox input {
+    margin: 0 10px 0 0;
+    vertical-align: middle;
+}
+.checkbox a {
+    color: #26a9e0;
+}
+.checkbox a:hover {
+    color: #85d6de;
+}
+.btn-item,
+button {
+    padding: 10px 5px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+    background: #26a9e0;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+}
+.btn-item {
+    display: inline-block;
+    margin: 20px 5px 0;
+}
+button {
+    width: 100%;
+}
+button:hover,
+.btn-item:hover {
+    background: #85d6de;
+}
+@media (min-width: 568px) {
+    html,
+    body {
+        height: 100%;
+    }
+    .main-block {
+        flex-direction: row;
+        height: calc(100% - 50px);
+    }
+    .left-part,
+    form {
+        flex: 1;
+        height: auto;
+    }
+}
+
+img[src='./img/knight.webp'] {
+    width: 5rem;
+}
+
+/* ============= End of Form Stylings ================ */
+
+/* ------------------------- Media Queries ------------------------------------------------------------------ */
+
+/* ========= Media Transforms  ============= */
+@media screen and (max-width: 450px) {
+    .event-description {
+        width: 375px;
+        height: 375px;
+        font-size: 0.4rem;
+    }
+
+    .centered-element {
+        font-size: 0.9rem;
+    }
+
+    .nav-container li {
+        font-size: 0.9rem;
+    }
+
+    .form {
+        width: auto;
+    }
+
+    .sortable {
+        width: auto;
+        max-width: 900px;
+    }
 }
