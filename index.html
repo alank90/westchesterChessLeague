@@ -33,8 +33,8 @@
 
   <h1>Westchester Chess League</h1>
   <h2>Chess Contest - 2023</h2>
-  <h3>Date: Friday March 24</h3>
-  <h3>Place: Scarsdale HS</h3>
+  <h3>Date: Friday, March 24</h3>
+  <h3>Place: Scarsdale HighSchool</h3>
   <h3>Date: Time: 3-7pm March 24</h3>
 
   <!-- ======================================================= -->
@@ -59,30 +59,66 @@
         <h2>Register here</h2>
       </div>
       <div class="info">
-        <input class="fname" type="text" name="name" placeholder="Full name">
-        <input type="text" name="name" placeholder="Email">
-        <input type="text" name="name" placeholder="Phone number">
-        <input type="password" name="name" placeholder="Password">
-        <select>
-          <option value="course-type" selected>Course type*</option>
-          <option value="short-courses">Short courses</option>
-          <option value="featured-courses">Featured courses</option>
-          <option value="undergraduate">Undergraduate</option>
-          <option value="diploma">Diploma</option>
-          <option value="certificate">Certificate</option>
-          <option value="masters-degree">Masters degree</option>
-          <option value="postgraduate">Postgraduate</option>
+        <input type="text" name="school" placeholder="School name" required>
+        <input type="text" name="teacher_advisor" placeholder="Teacher Advisor" required>
+        <input type="text" name="player_name1" placeholder="Player Name" required>
+        <select name="ranking1" required title="Please select a ranking from below" placeholder="Ranking">
+          <option value="">-- Pick a ranking --</option>
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="non-ranked">Non-ranked</option>
+        </select>
+        <input type="text" name="player_name2" placeholder="Player Name" required>
+        <select name="ranking2" required title="Please select a ranking from below" placeholder="Ranking">
+          <option value="">-- Pick a ranking --</option>
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="non-ranked">Non-ranked</option>
+        </select>
+        <input type="text" name="player_name3" placeholder="Player Name" required>
+        <select name="ranking3" required title="Please select a ranking from below" placeholder="Ranking">
+          <option value="">-- Pick a ranking --</option>
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="non-ranked">Non-ranked</option>
+        </select>
+        <input type="text" name="player_name4" placeholder="Player Name" required>
+        <select name="ranking4" required title="Please select a ranking from below" placeholder="Ranking">
+          <option value="">-- Pick a ranking --</option>
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="non-ranked">Non-ranked</option>
+        </select>
+        <input type="text" name="player_name5" placeholder="Player Name" required>
+        <select name="ranking5" required title="Please select a ranking from below" placeholder="Ranking">
+          <option value="">-- Pick a ranking --</option>
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="non-ranked">Non-ranked</option>
         </select>
       </div>
-      <div class="checkbox">
-        <input type="checkbox" name="checkbox"><span>I agree to the <a
-            href="https://www.w3docs.com/privacy-policy">Privacy Poalicy for W3Docs.</a></span>
-      </div>
-      <button type="submit" href="/">Submit</button>
+
+      <button class="btn btn-one" type="button" href="/">Submit</button>
+      <p class="error-message"></p>
     </form>
   </div>
   <!-- ======================================================= -->
-  <!-- ======== End of Form markup  ===========================-->
+  <!-- ======== End of Registration Form markup  ===========================-->
   <!-- ======================================================= -->
 
 

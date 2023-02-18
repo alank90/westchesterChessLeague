@@ -229,7 +229,10 @@ button:hover,
     .left-part,
     form {
         flex: 1;
-        height: auto;
+        height: 100%;
+        overflow-y: scroll;
+        scrollbar-color: rgb(57, 54, 59) rgb(247, 249, 247);
+        scrollbar-width: auto;
     }
 }
 
