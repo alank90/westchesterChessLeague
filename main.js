@@ -78,7 +78,9 @@ button.addEventListener('click', function () {
 
 // ===== End Event listener to submit form data =================== //
 
+// ======================================================================= //
 // ===== Event listener for accessing attendees table ==================== //
+// ======================================================================= //
 
 // Sign-up button listener
 signUp.addEventListener('click', () => {
