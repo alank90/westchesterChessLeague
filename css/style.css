@@ -4,8 +4,8 @@
     font-weight: 500;
 
     color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #f5f0f0;
+    color: rgba(9, 9, 9, 0.87);
+    background-color: rgba(255, 255, 255, 0.87);
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -14,6 +14,7 @@
     -webkit-text-size-adjust: 100%;
 
     --text-color: #fafafa;
+    --night-color: #0c0f0a;
 }
 
 html,
@@ -41,10 +42,15 @@ p {
     color: var(--text-color);
 }
 
+img {
+    width: 100%;
+    height: auto;
+}
+
 .nav-container {
     display: flex;
     flex-wrap: no-wrap;
-    background-color: #00070afc;
+    background-color: var(--night-color);
     justify-content: end;
     margin: 5px 5px;
     padding: 8px;
@@ -64,7 +70,8 @@ p {
 }
 
 a {
-    color: #f3f0f0;
+    color: #fff;
+    transition: color 0.5s ease-in-out;
     text-decoration: none;
     transition: font-size, color 0.3s ease-out;
 }
@@ -79,6 +86,7 @@ a:visited {
 
 a:hover {
     text-decoration: none;
+    color: rgba(9, 0, 0, 0.27);
 }
 
 a:active {
@@ -87,12 +95,12 @@ a:active {
 
 .nav-container > li > a:hover,
 .nav-container > li:hover {
-    color: rgb(255, 255, 255);
+    color: rgba(218, 215, 215, 0.979);
 }
 
 h1 {
     font-size: 3.2em;
-    color: #020d17;
+    color: var(--night-color);
     line-height: 1.1;
     text-align: center;
     margin-top: 15px;
@@ -102,7 +110,7 @@ h1 {
 
 h2 {
     font-size: 2.2em;
-    color: #020d17;
+    color: var(--night-color);
     text-align: center;
     text-transform: uppercase;
     margin: 20px 10px;
@@ -111,11 +119,15 @@ h2 {
 
 h3 {
     font-size: 1.2em;
-    color: #020d17;
+    color: var(--night-color);
     text-align: center;
     text-transform: uppercase;
     margin: 10px 0;
     transition: all 0.2s ease-in;
+}
+.visible {
+    opacity: 0;
+    height: 0;
 }
 
 #logout {
@@ -133,16 +145,16 @@ h3 {
     height: 100%;
     margin: 0 auto;
     padding: 25px;
-    background: rgba(0, 0, 0, 0.5);
+    background: #ff206e;
 }
 
 .left-part h1 {
-    font-size: 2rem;
+    font-size: 3vw;
 }
 
 form h2 {
     color: var(--text-color);
-    font-size: 2rem;
+    font-size: 2vw;
 }
 .left-part,
 form {
@@ -155,7 +167,7 @@ form {
     font-size: 72px;
 }
 form {
-    background: rgba(0, 0, 0, 0.7);
+    background: var(--night-color);
 }
 .title {
     display: flex;
@@ -181,41 +193,30 @@ option:focus {
     border: none;
 }
 option {
-    background: black;
+    background: var(--night-color);
     border: none;
 }
 .checkbox input {
     margin: 0 10px 0 0;
     vertical-align: middle;
 }
-.checkbox a {
-    color: #26a9e0;
-}
-.checkbox a:hover {
-    color: #85d6de;
-}
-.btn-item,
+
 button {
     padding: 10px 5px;
     margin-top: 20px;
     border-radius: 5px;
     border: none;
-    background: #26a9e0;
+    background: #fbff12;
     text-decoration: none;
     font-size: 15px;
-    font-weight: 400;
-    color: #fff;
-}
-.btn-item {
-    display: inline-block;
-    margin: 20px 5px 0;
-}
-button {
+    font-weight: 550;
+    color: var(--night-color);
     width: 100%;
+    cursor: pointer;
 }
-button:hover,
-.btn-item:hover {
-    background: #85d6de;
+
+button:hover {
+    background: #e7e8c2;
 }
 @media (min-width: 568px) {
     html,
@@ -236,9 +237,31 @@ button:hover,
     }
 }
 
-img[src='./img/knight.webp'] {
-    width: 5rem;
+/* =======  Form validation stylings ========== */
+input {
+    transition: border-color 0.5s ease-out;
 }
+
+input:optional {
+    border: 1px solid #172c38;
+}
+
+input:required:valid {
+    border: 2px solid green;
+    border-bottom-width: 1px;
+}
+
+input:focus:invalid {
+    background: url('https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg')
+        no-repeat 95% 50% #df8b78;
+    background-size: 25px;
+}
+
+input:focus:out-of-range {
+    background: #df8b78;
+}
+
+/* ======= End Form validation stylings ========== */
 
 /* ============= End of Form Stylings ================ */
 
@@ -250,10 +273,6 @@ img[src='./img/knight.webp'] {
         width: 375px;
         height: 375px;
         font-size: 0.4rem;
-    }
-
-    .centered-element {
-        font-size: 0.9rem;
     }
 
     .nav-container li {
