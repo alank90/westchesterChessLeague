@@ -265,6 +265,81 @@ input:focus:out-of-range {
 
 /* ============= End of Form Stylings ================ */
 
+/* =========== Table Stylings ======================== */
+.container {
+    position: relative;
+}
+
+.close {
+    display: block;
+    width: 40px;
+    padding: 8px;
+    border-radius: 3px;
+    margin-right: 20vw;
+    margin-left: auto;
+    margin-bottom: -35px;
+}
+
+.sortable {
+    position: relative;
+    z-index: 999;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    max-width: 900px;
+    margin: 35px auto;
+    border-collapse: collapse;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+thead {
+    background-color: var(--night-color);
+    color: #ffffff;
+}
+th {
+    text-align: center;
+    height: 40px;
+    vertical-align: middle;
+    font-weight: 550;
+}
+
+th a > span {
+    float: right;
+}
+th a:hover {
+    color: rgb(255, 255, 255);
+}
+
+tbody tr:nth-child(odd) {
+    background: #f5f4f4;
+    color: var(--night-color);
+}
+
+tbody tr:nth-child(even) {
+    background: #444444;
+}
+
+tbody tr:hover:nth-child(odd) {
+    background: #d8d9da;
+}
+
+tbody tr:hover:nth-child(even) {
+    background: #0e0e0f;
+}
+
+td {
+    padding: 5px;
+}
+/* ============ End Table Stylings ========== */
+
 /* ------------------------- Media Queries ------------------------------------------------------------------ */
 
 /* ========= Media Transforms  ============= */

@@ -14,7 +14,9 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
     integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
+    integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 
   <link rel="icon" href="favicon.jpg">
 </head>
@@ -42,7 +44,7 @@
   <!-- ======== Form markup is here ========================== -->
   <!-- ======================================================= -->
 
-  <div class="main-block">
+  <div class="main-block user">
     <div class="left-part">
       <img src="./img/knight.webp" alt="Knight piece">
       <h1>Register for our chess matches</h1>
@@ -127,8 +129,9 @@
   <!-- =========================================== -->
 
   <script id="template" type="text/x-handlebars-template">
+    <div class="container">
+    <img class="close" src="/img/close.webp" alt="Close Button">
     <table class="sortable">
-      <img class="close" src="./close.webp" alt="Close Button">
       <thead>
       <tr>
         <th>#</th>
@@ -153,15 +156,14 @@
      
       </tbody>
     </table>
+    </div>
   </script>
   <!-- ==== End of Handlebars Template ======= -->
 
   <!-- ========================================================= -->
   <!-- ============ Javascript Files Below ===================== -->
   <!-- ========================================================= -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
-    integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
   <script type="module" src="/main.js"></script>
 </body>
 

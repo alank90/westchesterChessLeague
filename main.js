@@ -11,6 +11,12 @@ const user = document.querySelector('.user');
 const button = document.querySelector('.btn');
 const form = document.querySelector('form');
 
+// ====== Handlebars.js helpers definition to generate ==== //
+// ====== row numbers for table =========================== //
+Handlebars.registerHelper('inc', function (value, options) {
+    return parseInt(value) + 1;
+});
+
 // ================================================================== //
 // ===== Event listener to submit form data to Google sheets ======== //
 // ================================================================== //
@@ -21,6 +27,7 @@ button.addEventListener('click', function () {
     // ========= construct array to send to Stein API to consume ======= //
     // ================================================================= //
     const isValid = form.reportValidity();
+    const numberOfEntriesInForm = 5;
     // Run form validity check
     form.reportValidity();
 
@@ -37,8 +44,7 @@ button.addEventListener('click', function () {
 
         // Iterate thru the array and check if any group member
         // names are null so we dont send them to Google sheets
-        // Note- the magic number 6 is the maximum number of players(5) in form we can submit
-        for (let i = 1; i < 6; i++) {
+        for (let i = 1; i < numberOfEntriesInForm + 1; i++) {
             if (formData['player_name' + i]) {
                 teamMember['school'] = formData['school'];
                 teamMember['teacher_advisor'] = formData['teacher_advisor'];
@@ -78,12 +84,68 @@ button.addEventListener('click', function () {
 
 // ===== End Event listener to submit form data =================== //
 
-// ======================================================================= //
-// ===== Event listener for accessing attendees table ==================== //
-// ======================================================================= //
+// -------------------------------------------------------------------------- //
 
-// Sign-up button listener
-signUp.addEventListener('click', () => {
-    console.log("I've been clicked!.");
-    accessAttendeesTables();
-});
+// ==================================================================== //
+// ============== Auth0 Client JS ===================================== //
+// ==================================================================== //
+const domain = import.meta.env.VITE_AUTH0_DOMAIN;
+const clientID = import.meta.env.VITE_CLIENT_ID;
+
+auth0
+    .createAuth0Client({
+        domain: domain,
+        clientId: clientID,
+        authorizationParams: {
+            redirect_uri: window.location.origin,
+        },
+    })
+    .then(async (auth0Client) => {
+        // Assumes a button with id "login" in the DOM
+        const loginButton = document.getElementById('login');
+        // ======================================================================= //
+        // ===== Event listener for displaying attendees table w/Handlebars.js === //
+        // ======================================================================= //
+        loginButton.addEventListener('click', (e) => {
+            if (isAuthenticated) {
+                accessAttendeesTables();
+                logoutButton.style.display = 'inherit';
+            } else {
+                console.log('not auth');
+                e.preventDefault();
+                auth0Client.loginWithRedirect();
+            }
+        });
+
+        if (
+            location.search.includes('state=') &&
+            (location.search.includes('code=') ||
+                location.search.includes('error='))
+        ) {
+            await auth0Client.handleRedirectCallback();
+            window.history.replaceState({}, document.title, '/');
+        }
+
+        // Assumes a button with id "logout" in the DOM
+        const logoutButton = document.getElementById('logout');
+
+        logoutButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            auth0Client.logout();
+            logoutButton.style.display = 'none';
+        });
+
+        const isAuthenticated = await auth0Client.isAuthenticated();
+        const userProfile = await auth0Client.getUser();
+
+        // Assumes an element with id "profile" in the DOM
+        const profileElement = document.getElementById('profile');
+
+        if (isAuthenticated) {
+            profileElement.style.display = 'block';
+            profileElement.innerHTML = `
+              <p class="user-name">${userProfile.name}</p>`;
+        } else {
+            profileElement.style.display = 'none';
+        }
+    });

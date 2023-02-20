@@ -2,6 +2,8 @@ import SteinStore from 'stein-js-client';
 import sortTable from './sortTable';
 
 const tableTemplate = document.getElementById('target');
+const user = document.querySelector('.user');
+
 
 // Create Stein Store instance
 const VITE_STEIN_URL = import.meta.env.VITE_STEIN_URL;
@@ -16,10 +18,9 @@ tableTemplate.addEventListener('click', (e) => {
 });
 
 /**
- * Description - Retrieves google sheets via the Stein JS client
- * imports - sortTable
- * Called from - /main.js
- * Returns - Google sheets signup table and then uses Handlebars.js
+ * @Description - Retrieves google sheets via the Stein JS client
+ * @Called from - /main.js
+ * @Returns - Google sheets signup table and then uses Handlebars.js
  *           to inject data into HTML template
  */
 
@@ -31,10 +32,9 @@ export default function accessAttendeesTables() {
 
     try {
         store
-            .read('signup')
+            .read('registration')
             .then((data) => {
                 attendeesArray = data;
-
                 // ===== Handlebars template code ============ //
                 let template = document.getElementById('template').innerHTML;
 
@@ -43,6 +43,7 @@ export default function accessAttendeesTables() {
 
                 //Render the data into the template
                 let rendered = compiled_template({ attendeesArray });
+                console.log(rendered);
 
                 //Overwrite the contents of #target with the renderer HTML
                 document.getElementById('target').innerHTML = rendered;
@@ -52,8 +53,7 @@ export default function accessAttendeesTables() {
                 user.classList.toggle('visible');
             })
             .then(() => {
-                sortTable();
-                crowdImg.classList.toggle('visible');
+                //sortTable();
                 tableTemplate.scrollIntoView({ behavior: 'smooth' });
 
                 //  ============= End Template code =============== //
