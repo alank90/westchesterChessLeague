@@ -23,8 +23,6 @@ body {
 }
 
 body {
-    background: url('/uploads/media/default/0001/01/b5edc1bad4dc8c20291c8394527cb2c5b43ee13c.jpeg')
-        no-repeat center;
     background-size: cover;
 }
 
@@ -119,15 +117,12 @@ h2 {
 
 h3 {
     font-size: 1.2em;
+    max-width: 40%;
     color: var(--night-color);
     text-align: center;
     text-transform: uppercase;
-    margin: 10px 0;
+    margin: 10px auto;
     transition: all 0.2s ease-in;
-}
-.visible {
-    opacity: 0;
-    height: 0;
 }
 
 #logout {
@@ -167,6 +162,7 @@ form {
     font-size: 72px;
 }
 form {
+    font-family: 'Roboto', sans-serif;
     background: var(--night-color);
 }
 .title {
@@ -339,6 +335,11 @@ td {
     padding: 5px;
 }
 /* ============ End Table Stylings ========== */
+
+.hidden {
+    opacity: 0;
+    height: 0;
+}
 
 /* ------------------------- Media Queries ------------------------------------------------------------------ */
 

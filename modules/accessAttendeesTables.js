@@ -2,20 +2,10 @@ import SteinStore from 'stein-js-client';
 import sortTable from './sortTable';
 
 const tableTemplate = document.getElementById('target');
-const user = document.querySelector('.user');
-
 
 // Create Stein Store instance
 const VITE_STEIN_URL = import.meta.env.VITE_STEIN_URL;
 const store = new SteinStore(VITE_STEIN_URL);
-
-// Event listener for close button on table
-tableTemplate.addEventListener('click', (e) => {
-    const el = e.target;
-    if (el.classList.contains('close')) {
-        tableTemplate.classList.toggle('visible');
-    }
-});
 
 /**
  * @Description - Retrieves google sheets via the Stein JS client
@@ -26,9 +16,6 @@ tableTemplate.addEventListener('click', (e) => {
 
 export default function accessAttendeesTables() {
     let attendeesArray = [];
-    if (tableTemplate.classList.contains('visible')) {
-        tableTemplate.classList.remove('visible');
-    }
 
     try {
         store
@@ -43,17 +30,29 @@ export default function accessAttendeesTables() {
 
                 //Render the data into the template
                 let rendered = compiled_template({ attendeesArray });
-                console.log(rendered);
 
                 //Overwrite the contents of #target with the renderer HTML
                 document.getElementById('target').innerHTML = rendered;
 
-                // toggle the form block so table is able to take its place in
-                // document body.
-                user.classList.toggle('visible');
+                const closeButton = document.querySelector('.close');
+                const formElem = document.querySelector('.main-block');
+
+                // Make the form element disappear
+                formElem.classList.add('hidden');
+                // Add an event listener for close button on table, now that it is
+                // finally created in the DOM.
+                closeButton.addEventListener('click', () => {
+                    const attendeeTableElem = document.getElementById('target');
+                    const formElem = document.querySelector('.main-block');
+                    const navElem = document.querySelector('nav');
+
+                    attendeeTableElem.classList.add('hidden');
+                    formElem.classList.remove('hidden');
+                    navElem.scrollIntoView({ behavior: 'smooth' });
+                });
             })
             .then(() => {
-                //sortTable();
+                sortTable();
                 tableTemplate.scrollIntoView({ behavior: 'smooth' });
 
                 //  ============= End Template code =============== //
