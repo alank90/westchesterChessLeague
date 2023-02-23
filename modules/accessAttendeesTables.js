@@ -42,11 +42,11 @@ export default function accessAttendeesTables() {
                 // Add an event listener for close button on table, now that it is
                 // finally created in the DOM.
                 closeButton.addEventListener('click', () => {
-                    const attendeeTableElem = document.getElementById('target');
-                    const formElem = document.querySelector('.main-block');
+                    const containerForAttendeeTableElem =
+                        document.querySelector('.container');
                     const navElem = document.querySelector('nav');
 
-                    attendeeTableElem.classList.add('hidden');
+                    containerForAttendeeTableElem.remove();
                     formElem.classList.remove('hidden');
                     navElem.scrollIntoView({ behavior: 'smooth' });
                 });

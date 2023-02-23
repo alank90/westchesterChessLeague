@@ -45,6 +45,11 @@ img {
     height: auto;
 }
 
+img[src='/img/rook_medium.webp'] {
+    width: 125px;
+    vertical-align: text-bottom;
+}
+
 .nav-container {
     display: flex;
     flex-wrap: no-wrap;
@@ -177,7 +182,7 @@ form {
 input,
 select {
     padding: 5px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     background: transparent;
     border: none;
     border-bottom: 1px solid #eee;
@@ -195,6 +200,10 @@ option {
 .checkbox input {
     margin: 0 10px 0 0;
     vertical-align: middle;
+}
+
+label {
+    display: block;
 }
 
 button {
@@ -263,17 +272,18 @@ input:focus:out-of-range {
 
 /* =========== Table Stylings ======================== */
 .container {
-    position: relative;
+    width: 85%;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .close {
-    display: block;
-    width: 40px;
+    position: relative;
+    width: 55px;
     padding: 8px;
     border-radius: 3px;
-    margin-right: 20vw;
-    margin-left: auto;
-    margin-bottom: -35px;
+    left: 95%;
+    top: 35px;
 }
 
 .sortable {
