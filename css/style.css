@@ -46,11 +46,17 @@ img {
 }
 
 img[src='/img/rook_medium.webp'] {
+    position: relative;
+    bottom: -1.5rem;
+    left: 25px;
     width: 125px;
-    vertical-align: text-bottom;
 }
 
-.nav-container {
+nav {
+    margin-left: -5px;
+}
+
+.ul-container {
     display: flex;
     flex-wrap: no-wrap;
     background-color: var(--night-color);
@@ -59,7 +65,7 @@ img[src='/img/rook_medium.webp'] {
     padding: 8px;
 }
 
-.nav-container > li {
+.ul-container > li {
     font-family: Monospace;
     font-size: 1.6rem;
     list-style-type: none;
@@ -96,8 +102,8 @@ a:active {
     text-decoration: none;
 }
 
-.nav-container > li > a:hover,
-.nav-container > li:hover {
+.ul-container > li > a:hover,
+.ul-container > li:hover {
     color: rgba(218, 215, 215, 0.979);
 }
 
@@ -109,6 +115,14 @@ h1 {
     margin-top: 15px;
     font-weight: 550;
     transition: all 0.2s ease-in;
+}
+
+.title-header {
+    text-align: center;
+}
+
+.title-header > h1 {
+    display: inline;
 }
 
 h2 {
