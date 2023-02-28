@@ -64,7 +64,14 @@ button.addEventListener('click', function () {
             store.append('registration', teamMembers).then((res) => {
                 console.log(res);
                 form.reset();
-                button.innerHTML = `Sign-up succesful. ${res.updatedRange}`;
+                var regex = /\d+/g;
+                var string = `${res.updatedRange}`;
+                var matches = string.match(regex); // creates array from matches
+                document.querySelector(
+                    '.message'
+                ).innerHTML = `Sign-up succesful. ${
+                    matches[1] - matches[0] + 1
+                } rows added!`;
                 // Delete error message if there
                 if (document.querySelector('.error-message').innerHTML !== '') {
                     document.querySelector('.error-message').innerHTML = '';
@@ -76,6 +83,10 @@ button.addEventListener('click', function () {
         }
     } else {
         // Form failed validity check.
+        // Delete previous success message if there
+        if (document.querySelector('.message').innerHTML !== '') {
+            document.querySelector('message').innerHTML = '';
+        }
         document.querySelector(
             '.error-message'
         ).innerHTML = `Form incorrect. Please check.`;
