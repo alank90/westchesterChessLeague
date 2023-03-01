@@ -52,6 +52,12 @@ img[src='/img/rook_medium.webp'] {
     width: 125px;
 }
 
+h1 ~ img[src='/img/rook_medium.webp'] {
+    position: relative;
+    bottom: -1.5rem;
+    left: -15px;
+    width: 125px;
+}
 nav {
     margin-left: -5px;
 }

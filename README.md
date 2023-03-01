@@ -16,4 +16,4 @@ The app uses Vite to build the site and [Auth0](https://manage.auth0.com/dashboa
 -   The app is deployed to [Netlify](https://app.netlify.com/teams/akillian90/overview).
 -   Remember to add the three environment variables(VITE_STEIN_URL etc...) to the Netlify app via the Dashboard.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/5dd5095a-b5c5-45fc-a2f9-d09df51cb7ce/deploy-status)](https://app.netlify.com/sites/weschessleague/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5dd5095a-b5c5-45fc-a2f9-d09df51cb7ce/deploy-status?branch=main)](https://app.netlify.com/sites/weschessleague/deploys)

@@ -6,8 +6,6 @@ const VITE_STEIN_URL = import.meta.env.VITE_STEIN_URL;
 const store = new SteinStore(VITE_STEIN_URL);
 
 // Variable Declarations
-const signUp = document.getElementById('signup');
-const user = document.querySelector('.user');
 const button = document.querySelector('.btn');
 const form = document.querySelector('form');
 
@@ -27,7 +25,7 @@ button.addEventListener('click', function () {
     // ========= construct array to send to Stein API to consume ======= //
     // ================================================================= //
     const isValid = form.reportValidity();
-    const numberOfEntriesInForm = 5;
+    const numberOfEntriesInForm = 10;
     // Run form validity check
     form.reportValidity();
 
