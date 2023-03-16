@@ -1,0 +1,137 @@
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 500;
+
+    color-scheme: light dark;
+    color: rgba(9, 9, 9, 0.87);
+    background-color: rgba(255, 255, 255, 0.87);
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+
+    --text-color: #fafafa;
+    --night-color: #0c0f0a;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    background-size: cover;
+}
+
+body,
+div,
+form,
+input,
+select,
+p {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 16px;
+    color: var(--night-color);
+}
+
+#app {
+    width: 90vw;
+    margin: 0 auto;
+}
+img {
+    width: 100%;
+    height: auto;
+}
+
+nav {
+    margin-left: -5px;
+}
+
+.ul-container {
+    display: flex;
+    flex-wrap: no-wrap;
+    background-color: var(--night-color);
+    justify-content: end;
+    margin: 5px 5px;
+    padding: 8px;
+}
+
+.ul-container > li {
+    font-family: Monospace;
+    font-size: 1.6rem;
+    list-style-type: none;
+    color: var(--text-color);
+    font-weight: 600;
+    margin-left: 15px;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    transition: font-size, color 0.3s ease-out;
+}
+
+a {
+    color: #fff;
+    transition: color 0.5s ease-in-out;
+    text-decoration: none;
+    transition: font-size, color 0.3s ease-out;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: rgba(9, 0, 0, 0.27);
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.ul-container > li > a:hover,
+.ul-container > li:hover {
+    color: rgba(218, 215, 215, 0.979);
+}
+
+h1 {
+    font-size: 3.2em;
+    color: var(--night-color);
+    line-height: 1.1;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 550;
+    transition: all 0.2s ease-in;
+}
+
+p {
+    width: 30vw;
+    margin: 0 auto;
+}
+
+button {
+    width: 40px;
+    margin: 0 50%;
+}
+
+input {
+    display: block;
+    width: 95px;
+    margin: 10px auto;
+}
+
+.score-board {
+    display: flex;
+    width: 85vw;
+    margin: 0 50%;
+}

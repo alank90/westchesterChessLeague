@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Scores</title>
+    <link href="https://cdn.jsdelivr.net/npm/modern-normalize@v1.1.0
+/modern-normalize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/scores.css">
+</head>
+
+<body>
+    <nav>
+        <ul class="ul-container">
+            <li><a href="/index.html">Home</a></li>
+
+        </ul>
+    </nav>
+
+    <h1>Chess Scores</h1>
+
+    <div id="app">
+        <button @click="increment">{{ count }}</button>
+
+        <p>Message is: {{ message }}</p>
+        <input v-model="message" placeholder="edit me" />
+        <div class="score-board">
+            scoreboard here
+        </div>
+
+
+    </div>
+
+    <script type="module">
+        import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+        createApp({
+            data() {
+                return {
+                    count: 0,
+                    message: ""
+                }
+
+            },
+            methods: {
+                increment() {
+                    this.count++
+                }
+            },
+            mounted() {
+                // methods can be called in lifecycle hooks, or other methods!
+                this.increment()
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
