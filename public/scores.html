@@ -23,6 +23,9 @@
 
     <div id="app">
         <div class="container">
+
+            <!-- ========== Matches table =============================== -->
+
             <table>
                 <thead>
                     <tr>
@@ -32,20 +35,74 @@
                     </tr>
                 </thead>
 
-                <tbody>
+                <!-- =========== Loader ======================== -->
+                <div class="lds-roller hidden">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <!-- =========== End Loader ===================== -->
 
+                <tbody>
                     <tr v-for="match in matchesArray">
                         <td>{{match.group_num}}</td>
                         <td>{{match.match}}</td>
                         <td>{{match.winner}}</td>
                     </tr>
-
                 </tbody>
             </table>
-        </div>
-        <button @click="accessMatches">Update Matches</button>
+            <button @click="accessMatches">Update Matches</button>
 
+        </div>
+
+        <div class="container1">
+            <div class="player-points-table">
+                <!-- ========== Player points table ============================ -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Total Points</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr v-for="player in playerPointsArray">
+                            <td>{{player.player_name}}</td>
+                            <td>{{player.points}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button @click="accessPlayerPoints">Player Points</button>
+            </div>
+            <!-- ========== School points table ============================ -->
+            <div class="school-points-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>School</th>
+                            <th>Total Points</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr v-for="school in schoolPointsArray">
+                            <td>{{school.school_name}}</td>
+                            <td>{{school.points}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button @click="accessSchoolPoints">School Points</button>
+            </div>
+        </div> <!-- End of .container1 -->
     </div>
+
+
 
     <!-- ========================================================= -->
     <!-- ============ Javascript Files Below ===================== -->

@@ -8,16 +8,39 @@ createApp({
     data() {
         return {
             matchesArray: [],
+            playerPointsArray: [],
+            schoolPointsArray: [],
             count: 0,
             message: '',
         };
     },
     methods: {
         accessMatches() {
+            const el = document.querySelector('.lds-roller');
+            el.classList.remove('hidden');
             try {
                 store.read('matches').then((data) => {
                     this.matchesArray = data;
-                    console.log('Stop clicking me...');
+                    el.classList.add('hidden');
+
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        },
+        accessPlayerPoints() {
+            try {
+                store.read('player_points').then((data) => {
+                    this.playerPointsArray = data;
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        },
+        accessSchoolPoints() {
+            try {
+                store.read('school_points').then((data) => {
+                    this.schoolPointsArray = data;
                 });
             } catch (error) {
                 console.error(error);
@@ -27,5 +50,7 @@ createApp({
     mounted() {
         // methods can be called in lifecycle hooks, or other methods!
         this.accessMatches();
+        this.accessPlayerPoints();
+        this.accessSchoolPoints();
     },
 }).mount('#app');
