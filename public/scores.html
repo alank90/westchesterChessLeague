@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/modern-normalize@v1.1.0
 /modern-normalize.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/scores.css">
+    <script src="https://unpkg.com/stein-js-client"></script>
 </head>
 
 <body>
@@ -22,36 +23,51 @@
     <h1>Chess Scores</h1>
 
     <div id="app">
-        <button @click="increment">{{ count }}</button>
 
-        <p>Message is: {{ message }}</p>
-        <input v-model="message" placeholder="edit me" />
+        <!-- <p>Message is: {{ message }}</p>
+        <input v-model="message" placeholder="edit me" /> -->
         <div class="score-board">
             scoreboard here
         </div>
-
+        <button @click="accessMatches">Update Matches</button>
 
     </div>
 
     <script type="module">
         import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
 
+        // Create Stein Store instance
+        const VITE_STEIN_URL = import.meta.env.VITE_STEIN_URL;
+        const store = new SteinStore(VITE_STEIN_URL);
+
         createApp({
             data() {
                 return {
+                    matchesArray: [],
                     count: 0,
                     message: ""
                 }
 
             },
             methods: {
-                increment() {
-                    this.count++
+                accessMatches() {
+                    try {
+                        store
+                            .read('matches')
+                            .then((data) => {
+                                attendeesArray = data;
+                                console.log("Stop clicking me...");
+                            })
+                    }
+                    catch (error) {
+                        console.error(error);
+                    }
+
                 }
             },
             mounted() {
                 // methods can be called in lifecycle hooks, or other methods!
-                this.increment()
+                this.accessMatches()
             }
         }).mount('#app')
     </script>
