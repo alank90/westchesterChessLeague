@@ -16,61 +16,41 @@
     <nav>
         <ul class="ul-container">
             <li><a href="/index.html">Home</a></li>
-
         </ul>
     </nav>
 
     <h1>Chess Scores</h1>
 
     <div id="app">
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Group Number</th>
+                        <th>Match</th>
+                        <th>Winner</th>
+                    </tr>
+                </thead>
 
-        <!-- <p>Message is: {{ message }}</p>
-        <input v-model="message" placeholder="edit me" /> -->
-        <div class="score-board">
-            scoreboard here
+                <tbody>
+
+                    <tr v-for="match in matchesArray">
+                        <td>{{match.group_num}}</td>
+                        <td>{{match.match}}</td>
+                        <td>{{match.winner}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
         </div>
         <button @click="accessMatches">Update Matches</button>
 
     </div>
 
-    <script type="module">
-        import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
-
-        // Create Stein Store instance
-        const VITE_STEIN_URL = import.meta.env.VITE_STEIN_URL;
-        const store = new SteinStore(VITE_STEIN_URL);
-
-        createApp({
-            data() {
-                return {
-                    matchesArray: [],
-                    count: 0,
-                    message: ""
-                }
-
-            },
-            methods: {
-                accessMatches() {
-                    try {
-                        store
-                            .read('matches')
-                            .then((data) => {
-                                attendeesArray = data;
-                                console.log("Stop clicking me...");
-                            })
-                    }
-                    catch (error) {
-                        console.error(error);
-                    }
-
-                }
-            },
-            mounted() {
-                // methods can be called in lifecycle hooks, or other methods!
-                this.accessMatches()
-            }
-        }).mount('#app')
-    </script>
+    <!-- ========================================================= -->
+    <!-- ============ Javascript Files Below ===================== -->
+    <!-- ========================================================= -->
+    <script type="module" src="/scores.js"></script>
 </body>
 
 </html>

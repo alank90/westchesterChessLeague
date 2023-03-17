@@ -43,6 +43,7 @@ p {
 #app {
     width: 90vw;
     margin: 0 auto;
+    overflow: hidden;
 }
 img {
     width: 100%;
@@ -130,8 +131,65 @@ input {
     margin: 10px auto;
 }
 
-.score-board {
-    display: flex;
-    width: 85vw;
-    margin: 0 50%;
+/* ======== Table Stylings =================- */
+.container {
+    width: 85%;
+    max-width: 900px;
+    margin: 0 auto;
 }
+
+table {
+    width: 100%;
+    max-width: 900px;
+    margin: 35px auto;
+    border-collapse: collapse;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+thead {
+    background-color: #7e7a7a;
+    color: #ffffff;
+}
+th {
+    text-align: center;
+    font-size: 1.6rem;
+    vertical-align: middle;
+    font-weight: 550;
+}
+
+th a > span {
+    float: right;
+}
+th a:hover {
+    color: rgb(255, 255, 255);
+}
+
+tbody tr:nth-child(odd) {
+    background: #222020;
+    color: var(--night-color);
+}
+
+tbody tr:nth-child(even) {
+    background: #444444;
+}
+
+tbody tr:hover:nth-child(odd) {
+    background: #b6b7b8;
+}
+
+tbody tr:hover:nth-child(even) {
+    background: #7f7878;
+}
+
+td {
+    color: rgb(255, 255, 255);
+    padding: 5px;
+    font-size: 1.1rem;
+}
+/* ============ End Table Stylings ========== */
