@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chess Scores</title>
+    <title>Westchester Chess League</title>
     <link href="https://cdn.jsdelivr.net/npm/modern-normalize@v1.1.0
 /modern-normalize.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/scores.css">
-    <script src="https://unpkg.com/stein-js-client"></script>
+
 </head>
 
 <body>
@@ -21,11 +21,23 @@
 
     <h1>Chess Scores</h1>
 
+    <!-- =========== Vue template ================================================ -->
     <div id="app">
+        <!-- =========== Loader ======================== -->
+        <div v-if="loading" class="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <!-- =========== End Loader ===================== -->
+
         <div class="container">
-
             <!-- ========== Matches table =============================== -->
-
             <table>
                 <thead>
                     <tr>
@@ -35,18 +47,6 @@
                     </tr>
                 </thead>
 
-                <!-- =========== Loader ======================== -->
-                <div class="lds-roller hidden">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <!-- =========== End Loader ===================== -->
 
                 <tbody>
                     <tr v-for="match in matchesArray">
@@ -101,12 +101,15 @@
             </div>
         </div> <!-- End of .container1 -->
     </div>
-
+    <!-- =========== End of Vue template =================================================== -->
 
 
     <!-- ========================================================= -->
     <!-- ============ Javascript Files Below ===================== -->
     <!-- ========================================================= -->
+
+    <!-- === Import the Stein client via script tag == -->
+    <script src="https://unpkg.com/stein-js-client"></script>
     <script type="module" src="/scores.js"></script>
 </body>
 

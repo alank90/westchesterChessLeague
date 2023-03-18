@@ -10,39 +10,43 @@ createApp({
             matchesArray: [],
             playerPointsArray: [],
             schoolPointsArray: [],
-            count: 0,
-            message: '',
+            loading: false,
         };
     },
     methods: {
         accessMatches() {
-            const el = document.querySelector('.lds-roller');
-            el.classList.remove('hidden');
+            this.loading = true;
             try {
                 store.read('matches').then((data) => {
                     this.matchesArray = data;
-                    el.classList.add('hidden');
-
+                    this.loading = false;
                 });
             } catch (error) {
+                this.loading = false;
                 console.error(error);
             }
         },
         accessPlayerPoints() {
+            this.loading = true;
             try {
                 store.read('player_points').then((data) => {
                     this.playerPointsArray = data;
+                    this.loading = false;
                 });
             } catch (error) {
+                this.loading = false;
                 console.error(error);
             }
         },
         accessSchoolPoints() {
+            this.loading = true;
             try {
                 store.read('school_points').then((data) => {
                     this.schoolPointsArray = data;
+                    this.loading = false;
                 });
             } catch (error) {
+                this.loading = false;
                 console.error(error);
             }
         },
