@@ -364,9 +364,14 @@ td {
 }
 /* ============ End Table Stylings ========== */
 
+/* ========== Auth0 stylings =========== */
 .hidden {
-    opacity: 0;
-    height: 0;
+    display: none;
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
 }
 
 /* ------------------------- Media Queries ------------------------------------------------------------------ */

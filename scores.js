@@ -8,6 +8,7 @@ createApp({
     data() {
         return {
             matchesArray: [],
+            previousMatchesArray: [],
             playerPointsArray: [],
             schoolPointsArray: [],
             loading: false,
@@ -26,6 +27,19 @@ createApp({
                 console.error(error);
             }
         },
+        accessPreviousMatches() {
+            this.loading = true;
+            try {
+                store.read('prev_matches').then((data) => {
+                    this.previousMatchesArray = data;
+                    this.loading = false;
+                });
+            } catch (error) {
+                this.loading = false;
+                console.error(error);
+            }
+        },
+
         accessPlayerPoints() {
             this.loading = true;
             try {
@@ -54,6 +68,7 @@ createApp({
     mounted() {
         // methods can be called in lifecycle hooks, or other methods!
         this.accessMatches();
+        this.accessPreviousMatches();
         this.accessPlayerPoints();
         this.accessSchoolPoints();
     },

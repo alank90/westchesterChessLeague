@@ -24,27 +24,46 @@
     <!-- =========== Vue template ================================================ -->
     <div id="app">
         <div class="container">
-            <!-- ========== Matches table =============================== -->
-            <table>
-                <thead>
-                    <tr>
-                        <th>Group Number</th>
-                        <th>Match</th>
-                        <th>Winner</th>
-                    </tr>
-                </thead>
-
-
-                <tbody>
-                    <tr v-for="match in matchesArray">
-                        <td>{{match.group_num}}</td>
-                        <td>{{match.match}}</td>
-                        <td>{{match.winner}}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <button @click="accessMatches">Update Matches</button>
-
+            <div class="sub-cont1">
+                <!-- ========== Matches table =============================== -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Current Match One</th>
+                            <th>Current Match Two</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="match in matchesArray">
+                            <td> {{match.match}} </td>
+                            <td> {{match.matches2}} </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button @click="accessMatches">Update Matches</button>
+            </div>
+            <!-- ========== Previous Matches table =============================== -->
+            <div class="sub-cont2">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Previous Match One </th>
+                            <th>Winner One</th>
+                            <th>Previous Match Two</th>
+                            <th>Winner Two</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="prev_match in previousMatchesArray">
+                            <td>{{ prev_match.prev_match }}</td>
+                            <td>{{ prev_match.winner }}</td>
+                            <td>{{ prev_match.prev_match2 }}</td>
+                            <td>{{ prev_match.winner2 }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button @click="previousMatches">Update Matches</button>
+            </div>
         </div>
 
         <div class="container1">

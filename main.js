@@ -110,19 +110,53 @@ auth0
         },
     })
     .then(async (auth0Client) => {
+        const isAuthenticated = await auth0Client.isAuthenticated();
+        console.log(isAuthenticated);
+        if (isAuthenticated) {
+            document.getElementById('btn-logout').classList.remove('hidden');
+            document.getElementById('btn-login').classList.add('hidden');
+        } else {
+            document.getElementById('btn-login').classList.remove('hidden');
+            document.getElementById('btn-logout').classList.add('hidden');
+        }
+
         // Assumes a button with id "login" in the DOM
-        const loginButton = document.getElementById('login');
+        const loginButton = document.getElementById('btn-login');
         // ======================================================================= //
         // ===== Event listener for displaying attendees table w/Handlebars.js === //
         // ======================================================================= //
         loginButton.addEventListener('click', (e) => {
-            if (isAuthenticated) {
-                accessAttendeesTables();
-                logoutButton.style.display = 'inherit';
+            e.preventDefault();
+            console.log('not auth');
+            const login = async () => {
+                await auth0Client.loginWithRedirect({
+                    authorizationParams: {
+                        redirect_uri: window.location.origin,
+                    },
+                });
+
+                document.getElementById('btn-login').classList.add('hidden');
+                document
+                    .getElementById('btn-logout')
+                    .classList.remove('hidden');
+            };
+            console.log('passed loginwithauth0redirect');
+
+            if (!isAuthenticated) {
+                login();
+
+                // Assumes an element with id "profile" in the DOM
+                const profileElement = document.getElementById('profile');
+
+                if (isAuthenticated) {
+                    profileElement.style.display = 'block';
+                    profileElement.innerHTML = `
+              <p class="user-name">${userProfile.name}</p>`;
+                } else {
+                    return;
+                }
             } else {
-                console.log('not auth');
-                e.preventDefault();
-                auth0Client.loginWithRedirect();
+                alert('Already logged in!');
             }
         });
 
@@ -136,27 +170,29 @@ auth0
         }
 
         // Assumes a button with id "logout" in the DOM
-        const logoutButton = document.getElementById('logout');
+        const logoutButton = document.getElementById('btn-logout');
 
         logoutButton.addEventListener('click', (e) => {
             e.preventDefault();
-            auth0Client.logout();
-            logoutButton.style.display = 'none';
+            auth0Client.logout({
+                logoutParams: {
+                    returnTo: window.location.origin,
+                },
+            });
+            document.getElementById('btn-login').classList.remove('hidden');
+            document.getElementById('btn-logout').classList.add('hidden');
         });
 
-        const isAuthenticated = await auth0Client.isAuthenticated();
-        const userProfile = await auth0Client.getUser();
+        // ========= Event listener for Attendees table =========== //
+        const navAttendesEl = document.querySelector('.attendees');
 
-        // Assumes an element with id "profile" in the DOM
-        const profileElement = document.getElementById('profile');
-
-        if (isAuthenticated) {
-            profileElement.style.display = 'block';
-            profileElement.innerHTML = `
-              <p class="user-name">${userProfile.name}</p>`;
-        } else {
-            profileElement.style.display = 'none';
-        }
+        navAttendesEl.addEventListener('click', () => {
+            if (!isAuthenticated) {
+                alert('not authorized!');
+            } else {
+                accessAttendeesTables();
+            }
+        });
     });
 
 // ==================================================================== //
