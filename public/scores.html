@@ -23,19 +23,6 @@
 
     <!-- =========== Vue template ================================================ -->
     <div id="app">
-        <!-- =========== Loader ======================== -->
-        <div v-if="loading" class="lds-roller">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <!-- =========== End Loader ===================== -->
-
         <div class="container">
             <!-- ========== Matches table =============================== -->
             <table>
@@ -100,6 +87,19 @@
                 <button @click="accessSchoolPoints">School Points</button>
             </div>
         </div> <!-- End of .container1 -->
+
+        <!-- =========== Loader ======================== -->
+        <div v-if="loading" class="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <!-- =========== End Loader ===================== -->
     </div>
     <!-- =========== End of Vue template =================================================== -->
 
