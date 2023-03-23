@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "eslint-config-prettier": "^8.6.0",
-    "netlify-cli": "^13.1.6",
+    "netlify-cli": "^13.2.1",
     "stein-js-client": "^0.0.2"
   }
 }
