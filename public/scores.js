@@ -1,7 +1,8 @@
 import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
 
 // Create Stein Store instance
-const VITE_STEIN_URL =  "https://api.steinhq.com/v1/storages/63f150abd27cdd09f0e48d76";
+const VITE_STEIN_URL =
+    'https://api.steinhq.com/v1/storages/63f150abd27cdd09f0e48d76';
 const store = new SteinStore(VITE_STEIN_URL);
 
 createApp({
