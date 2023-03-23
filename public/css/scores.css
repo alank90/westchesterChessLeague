@@ -176,7 +176,7 @@ input {
     align-items: flex-start;
     column-gap: 20px;
     max-width: 900px;
-    margin-bottom: 0 auto 35px;
+    margin: 0 auto 25px;
 }
 
 table {

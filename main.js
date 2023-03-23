@@ -111,7 +111,6 @@ auth0
     })
     .then(async (auth0Client) => {
         const isAuthenticated = await auth0Client.isAuthenticated();
-        console.log(isAuthenticated);
         if (isAuthenticated) {
             document.getElementById('btn-logout').classList.remove('hidden');
             document.getElementById('btn-login').classList.add('hidden');
@@ -127,7 +126,6 @@ auth0
         // ======================================================================= //
         loginButton.addEventListener('click', (e) => {
             e.preventDefault();
-            console.log('not auth');
             const login = async () => {
                 await auth0Client.loginWithRedirect({
                     authorizationParams: {
@@ -140,7 +138,6 @@ auth0
                     .getElementById('btn-logout')
                     .classList.remove('hidden');
             };
-            console.log('passed loginwithauth0redirect');
 
             if (!isAuthenticated) {
                 login();
